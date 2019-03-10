@@ -1,3 +1,10 @@
+# Introduction
+
+This project is Emanuele Eronato's [rebuild of Magick](https://www.emanueleferonato.com/2018/09/23/build-a-html5-game-like-magick-ipad-game-using-phaser-and-arcade-physics-code-updated-to-phaser-3/),
+a retro platformer, using [React](https://reactjs.org/).
+
+# create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

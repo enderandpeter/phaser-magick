@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Game from "./components/Game";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+        game: null,
+        height: window.innerHeight,
+        width: window.innerWidth
+    }
+    initializeGame(game){
+        this.setState({ game })
+    }
+    preload(){
+        this.load.tilemapTiledJSON("map", "assets/map.json");
+        this.load.image("tiles", "assets/tiles.png");
+        this.load.image("player", "assets/player.png");
+    }
+    render() {
+        return (
+            <div className="App">
+              <h1>{this.state.game && this.state.game.config ? this.state.game.config.gameTitle : ''}</h1>
+              <Game
+                  game={this.state.game}
+                  initializeGame={this.initializeGame.bind(this)}
+              />
+            </div>
+        );
+    }
 }
 
 export default App;
